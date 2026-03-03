@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import type { DashboardResponse } from '@/types/dashboard';
 import { Alert } from '@/components/Alert';
 import { Skeleton } from '@/components/Skeleton';
+import { MetricCard } from '@/components/MetricCard';
+import { Table } from '@/components/Table';
 
 type LoadState =
   | { status: 'loading' }
@@ -26,25 +28,18 @@ export default function Home() {
         const endpoint = simulateError ? '/api/data?error=1' : '/api/data';
         const res = await fetch(endpoint, { cache: 'no-store' });
 
-        if (!res.ok) {
-          throw new Error(`Falha ao buscar dados (HTTP ${res.status})`);
-        }
+        if (!res.ok) throw new Error(`Falha ao buscar dados (HTTP ${res.status})`);
 
         const data = (await res.json()) as DashboardResponse;
 
-        if (!cancelled) {
-          setState({ status: 'success', data });
-        }
+        if (!cancelled) setState({ status: 'success', data });
       } catch (err) {
         const message = err instanceof Error ? err.message : 'Erro desconhecido';
-        if (!cancelled) {
-          setState({ status: 'error', message });
-        }
+        if (!cancelled) setState({ status: 'error', message });
       }
     }
 
     load();
-
     return () => {
       cancelled = true;
     };
@@ -58,7 +53,7 @@ export default function Home() {
             Dashboard de Métricas
           </h1>
           <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-            MVP: carregamento, erro e consumo de API simulada.
+            Visão geral de campanhas e métricas principais.
           </p>
         </div>
 
@@ -79,13 +74,9 @@ export default function Home() {
             <Skeleton className="h-24" />
           </div>
 
-          <Skeleton className="h-64" />
-
           <div className="space-y-2">
             <Skeleton className="h-10" />
-            <Skeleton className="h-10" />
-            <Skeleton className="h-10" />
-            <Skeleton className="h-10" />
+            <Skeleton className="h-56" />
           </div>
         </div>
       )}
@@ -98,15 +89,17 @@ export default function Home() {
       )}
 
       {state.status === 'success' && (
-        <section className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-          <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
-            Dados carregados
-          </h2>
+        <div className="space-y-6">
+          <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {state.data.metrics.map((m) => (
+              <MetricCard key={m.id} metric={m} />
+            ))}
+          </section>
 
-          <pre className="mt-4 overflow-auto rounded-md bg-zinc-50 p-3 text-xs text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50">
-            {JSON.stringify(state.data, null, 2)}
-          </pre>
-        </section>
+          <section>
+            <Table campaigns={state.data.campaigns} />
+          </section>
+        </div>
       )}
     </main>
   );
