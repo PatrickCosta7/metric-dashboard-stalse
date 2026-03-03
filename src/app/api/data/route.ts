@@ -6,7 +6,7 @@ export function GET(request: Request) {
   try {
     const url = new URL(request.url);
 
-    // Simulation of an error response when "error=1" is present on URL
+    // Error simulation triggered by button.
     if (url.searchParams.get('error') === '1') {
       return NextResponse.json({ message: 'Simulated API error' }, { status: 500 });
     }
