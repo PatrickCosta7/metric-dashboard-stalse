@@ -1,0 +1,21 @@
+{
+  "metrics": [
+    { "id": "totalClients", "label": "Total de Clientes", "value": 1280, "format": "number" },
+    { "id": "monthlyRevenue", "label": "Receita Mensal", "value": 84250, "format": "currency" },
+    { "id": "conversionRate", "label": "Taxa de Conversão", "value": 0.043, "format": "percent" }
+  ],
+  "campaigns": [
+    { "id": "cmp_01", "name": "Promo Verão", "channel": "Meta", "status": "Ativa", "investment": 5200 },
+    { "id": "cmp_02", "name": "Search Brand", "channel": "Google", "status": "Ativa", "investment": 8600 },
+    { "id": "cmp_03", "name": "Reengajamento", "channel": "Email", "status": "Ativa", "investment": 900 },
+    { "id": "cmp_04", "name": "B2B Leads", "channel": "LinkedIn", "status": "Pausada", "investment": 4300 },
+    { "id": "cmp_05", "name": "Topo de Funil", "channel": "TikTok", "status": "Ativa", "investment": 3100 },
+    { "id": "cmp_06", "name": "Remarketing", "channel": "Google", "status": "Pausada", "investment": 2500 },
+    { "id": "cmp_07", "name": "Black Friday", "channel": "Meta", "status": "Ativa", "investment": 12000 },
+    { "id": "cmp_08", "name": "Newsletter Conteúdo", "channel": "Email", "status": "Pausada", "investment": 600 },
+    { "id": "cmp_09", "name": "ABM Empresas", "channel": "LinkedIn", "status": "Ativa", "investment": 5400 },
+    { "id": "cmp_10", "name": "Influencers", "channel": "TikTok", "status": "Pausada", "investment": 1800 },
+    { "id": "cmp_11", "name": "Campanha Institucional", "channel": "Google", "status": "Ativa", "investment": 4700 },
+    { "id": "cmp_12", "name": "Retenção Q1", "channel": "Email", "status": "Ativa", "investment": 1100 }
+  ]
+}
