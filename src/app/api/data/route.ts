@@ -4,16 +4,20 @@ import dashboard from '@/mocks/dashboard.json';
 
 export function GET(request: Request) {
   try {
-    new URL(request.url);
+    const url = new URL(request.url);
+
+    // Simulation of an error response when "error=1" is present on URL
+    if (url.searchParams.get('error') === '1') {
+      return NextResponse.json({ message: 'Simulated API error' }, { status: 500 });
+    }
 
     return NextResponse.json(dashboard as DashboardResponse, {
-      status: 200 });
+      status: 200,
+      headers: { 'Cache-Control': 'no-store' },
+    });
   } catch (error) {
     console.error('Failed to handle dashboard API request:', error);
 
-    return NextResponse.json(
-      { message: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
   }
 }
