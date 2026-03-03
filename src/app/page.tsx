@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/Skeleton';
 import { MetricCard } from '@/components/MetricCard';
 import { Table } from '@/components/Table';
 import { StatusFilter, type StatusFilterValue } from '@/components/StatusFilter';
+import { Chart } from '@/components/Chart';
 
 type LoadState =
   | { status: 'loading' }
@@ -121,8 +122,13 @@ export default function Home() {
 
           <div className="space-y-2">
             <Skeleton className="h-10" />
-            <Skeleton className="h-56" />
+            <Skeleton className="h-120" />
           </div>
+
+          <div>
+            <Skeleton className="h-75" />
+          </div>        
+
         </div>
       )}
 
@@ -157,6 +163,11 @@ export default function Home() {
           <section>
             <Table campaigns={campaignsFiltered} />
           </section>
+
+          <section>
+            <Chart campaigns={state.data.campaigns} />
+          </section>
+
         </div>
       )}
     </main>
