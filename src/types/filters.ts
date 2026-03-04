@@ -1,0 +1,1 @@
+export type StatusFilterValue = 'all' | 'active' | 'paused';

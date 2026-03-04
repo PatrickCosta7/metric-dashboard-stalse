@@ -1,4 +1,4 @@
-type StatusFilterValue = 'all' | 'active' | 'paused';
+import type { StatusFilterValue } from '../types/filters';
 
 type StatusFilterProps = {
   value: StatusFilterValue;
