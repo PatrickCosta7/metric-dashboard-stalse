@@ -19,3 +19,5 @@ export type DashboardResponse = {
   metrics: Metric[];
   campaigns: Campaign[];
 };
+
+export type StatusFilterValue = 'all' | 'active' | 'paused';

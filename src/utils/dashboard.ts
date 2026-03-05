@@ -1,5 +1,5 @@
-import type { Campaign } from '@/types/dashboard';
-import type { StatusFilterValue } from '../types/filters';
+import type { Campaign } from '@/types/index';
+import type { StatusFilterValue } from '@/types/index';
 
 export function applyStatusFilter(
   campaigns: Campaign[],
