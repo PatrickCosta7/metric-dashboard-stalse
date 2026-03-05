@@ -1,4 +1,4 @@
-import type { Campaign } from '@/types/dashboard';
+import type { Campaign } from '@/types';
 
 type TableProps = {
   campaigns: Campaign[];

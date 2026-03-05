@@ -1,6 +1,6 @@
 'use client';
 
-import type { Campaign } from '@/types/dashboard';
+import type { Campaign } from '@/types';
 import {
   BarChart,
   Bar,

@@ -1,4 +1,4 @@
-import type { Metric } from '@/types/dashboard';
+import type { Metric } from '@/types';
 
 function formatMetricValue(metric: Metric) {
   switch (metric.format) {

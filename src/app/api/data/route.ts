@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import type { DashboardResponse } from '@/types/dashboard';
-import dashboard from '@/mocks/dashboard.json';
+import type { DashboardResponse } from '@/types';
+import dashboard from '@/utils/mocks/dashboard.json';
 
 export function GET(request: Request) {
   try {
