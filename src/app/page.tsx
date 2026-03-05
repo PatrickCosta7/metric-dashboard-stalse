@@ -1,32 +1,21 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
 
-import type { StatusFilterValue } from '@/types';
+import { useStatusFilter } from '@/hooks/useStatusFilter';
 import { useDashboardData } from '@/hooks/useDashboardData';
-import { parseStatusFilter, applyStatusFilter } from '@/utils/dashboard';
+import type { StatusFilterValue } from '@/types';
+import { applyStatusFilter } from '@/utils/dashboard';
 import { DashboardHeader } from '@/components/DashboardHeader';
 import { DashboardSuccess } from '@/components/DashboardSucess';
 import { DashboardError } from '@/components/DashboardError';
 import { DashboardLoading } from '@/components/DashboardLoading';
 
 export default function Home() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
   const [simulateError, setSimulateError] = useState(false);
   const state = useDashboardData(simulateError);
 
-  // URL -> filtro
-  const urlFilter = parseStatusFilter(searchParams.get('status'));
-
-  const [statusFilter, setStatusFilter] = useState<StatusFilterValue>(urlFilter);
-
-  useEffect(() => {
-    setStatusFilter(urlFilter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [urlFilter]);
+  const { statusFilter, setStatusFilter } = useStatusFilter();
 
   const campaignsFiltered = useMemo(() => {
     if (state.status !== 'success') return [];
@@ -35,13 +24,6 @@ export default function Home() {
 
   function handleChangeFilter(next: StatusFilterValue) {
     setStatusFilter(next);
-
-    const params = new URLSearchParams(searchParams.toString());
-    if (next === 'all') params.delete('status');
-    else params.set('status', next);
-
-    const query = params.toString();
-    router.replace(query ? `/?${query}` : '/', { scroll: false });
   }
 
   return (
