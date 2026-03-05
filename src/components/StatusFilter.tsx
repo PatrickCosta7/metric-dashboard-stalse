@@ -1,4 +1,4 @@
-import type { StatusFilterValue } from '../types/filters';
+import type { StatusFilterValue } from '../types/index';
 
 type StatusFilterProps = {
   value: StatusFilterValue;
