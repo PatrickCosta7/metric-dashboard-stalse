@@ -16,7 +16,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Dashboard de Métricas',
-  description: 'Dashboard em Next.js com métricas e campanhas (mock API).',
 };
 
 export default function RootLayout({
