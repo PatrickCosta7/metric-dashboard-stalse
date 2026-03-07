@@ -10,7 +10,7 @@ import { applyStatusFilter } from '@/utils/dashboard';
 import { DashboardHeader } from '@/components/DashboardElements/DashboardHeader';
 import { DashboardSuccess } from '@/components/DashboardElements/DashboardSuccess';
 import { DashboardError } from '@/components/DashboardElements/DashboardError';
-import { DashboardLoading } from '@/components/DashboardElements/DashboardLoading';
+import { DashboardSkeleton } from '@/components/DashboardElements/DashboardSkeleton';
 
 export default function HomeClient() {
   const [simulateError, setSimulateError] = useState(false);
@@ -36,7 +36,7 @@ export default function HomeClient() {
         onToggleSimulateError={() => setSimulateError((v) => !v)}
       />
 
-      {state.status === 'loading' && <DashboardLoading />}
+      {state.status === 'loading' && <DashboardSkeleton />}
 
       {state.status === 'error' && <DashboardError message={state.message} />}
 
