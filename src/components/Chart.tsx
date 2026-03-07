@@ -28,6 +28,24 @@ function formatCurrencyBRL(value: number) {
   }).format(value);
 }
 
+function shortChannelLabel(channel: string) {
+  // baseado no seu mock
+  switch (channel) {
+    case 'LinkedIn':
+      return 'Linked';
+    case 'TikTok':
+      return 'TikTok';
+    case 'Google':
+      return 'Google';
+    case 'Email':
+      return 'Email';
+    case 'Meta':
+      return 'Meta';
+    default:
+      return channel;
+  }
+}
+
 function buildChartData(campaigns: Campaign[]): ChartRow[] {
   const map = new Map<string, number>();
 
@@ -56,20 +74,40 @@ export function Chart({ campaigns }: ChartProps) {
 
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 8, right: 12, left: 0, bottom: 8 }}>
+          <BarChart
+            data={data}
+            // dá espaço pros labels rotacionados
+            margin={{ top: 8, right: 12, left: 0, bottom: 32 }}
+          >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="channel" tickLine={false} axisLine={false} />
+
+            <XAxis
+              dataKey="channel"
+              tickLine={false}
+              axisLine={false}
+              interval={0}
+              tickMargin={10}
+              tickFormatter={(v) => shortChannelLabel(String(v))}
+              angle={-35}
+              textAnchor="end"
+              height={52}
+            />
+
             <YAxis
               tickLine={false}
               axisLine={false}
               tickFormatter={(v) => formatCurrencyBRL(Number(v))}
               width={90}
             />
+
             <Tooltip
               formatter={(value) => formatCurrencyBRL(Number(value))}
+              // opcional: no dark isso não é perfeito, mas já melhora um pouco:
               labelStyle={{ color: '#111827' }}
             />
-            <Bar dataKey="investment" fill="#111827" radius={[6, 6, 0, 0]} />
+
+            {/* Indigo em vez de preto (combine com seu tema) */}
+            <Bar dataKey="investment" fill="#4f46e5" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -8,7 +8,7 @@ import { useStatusFilter } from '@/hooks/useStatusFilter';
 import { useDashboardData } from '@/hooks/useDashboardData';
 import { applyStatusFilter } from '@/utils/dashboard';
 import { DashboardHeader } from '@/components/DashboardHeader';
-import { DashboardSuccess } from '@/components/DashboardSucess';
+import { DashboardSuccess } from '@/components/DashboardSuccess';
 import { DashboardError } from '@/components/DashboardError';
 import { DashboardLoading } from '@/components/DashboardLoading';
 
@@ -32,7 +32,6 @@ export default function HomeClient() {
 
       <DashboardHeader
         title="Dashboard de Métricas"
-        subtitle="Visão geral de campanhas e métricas principais."
         simulateError={simulateError}
         onToggleSimulateError={() => setSimulateError((v) => !v)}
       />
