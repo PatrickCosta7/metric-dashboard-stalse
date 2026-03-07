@@ -7,9 +7,9 @@ Dashboard simples para exibir métricas e campanhas usando **Next.js (App Router
 - https://metric-dashboard-stalse.vercel.app/ 
 
 
-# Como rodar localmente
+# Como rodar localmente:
 
-## Requisitos
+### Requisitos
 - Node.js (recomendado: versão LTS)
 - npm / yarn / pnpm
 
@@ -28,16 +28,10 @@ npm run dev
 3) Acesse no navegador:
 - `http://localhost:3000`
 
-## Build e produção (opcional)
-```bash
-npm run build
-npm start
-```
-
 ## O que você vai ver
+- Simulação de erro
+- Tema claro/escuro (e sistema)
 - Skeleton ao carregar a página
 - Cards com 3 métricas principais
 - Tabela de campanhas com filtro por status
 - Gráfico de investimento por canal
-- Simulação de erro
-- Tema claro/escuro (e sistema)
