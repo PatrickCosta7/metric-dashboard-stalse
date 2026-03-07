@@ -16,7 +16,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Dashboard de Métricas',
-  description: 'Dashboard em Next.js com métricas e campanhas (mock API).',
 };
 
 export default function RootLayout({
@@ -30,7 +29,7 @@ export default function RootLayout({
         className={[
           geistSans.variable,
           geistMono.variable,
-          'antialiased',
+          'font-sans antialiased',
           'min-h-dvh',
           'bg-zinc-50 text-zinc-900',
           'dark:bg-zinc-950 dark:text-zinc-50',
