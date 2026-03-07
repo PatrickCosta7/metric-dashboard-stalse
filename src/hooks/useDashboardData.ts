@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { DashboardResponse } from '@/types';
 
-type DashboardLoadState =
+export type DashboardLoadState =
   | { status: 'loading' }
   | { status: 'error'; message: string }
   | { status: 'success'; data: DashboardResponse };
@@ -42,5 +42,3 @@ export function useDashboardData(simulateError: boolean) {
 
   return state;
 }
-
-export type { DashboardLoadState };
