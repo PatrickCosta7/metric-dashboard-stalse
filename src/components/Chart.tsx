@@ -69,11 +69,10 @@ export function Chart({ campaigns }: ChartProps) {
         </h2>
       </div>
 
-      <div className="h-64">
+      <div className="h-64 min-w-0 min-h-0" style={{ minWidth: 0, minHeight: 0 }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            // dá espaço pros labels rotacionados
             margin={{ top: 8, right: 12, left: 0, bottom: 32 }}
           >
             <CartesianGrid strokeDasharray="3 3" />
@@ -99,11 +98,9 @@ export function Chart({ campaigns }: ChartProps) {
 
             <Tooltip
               formatter={(value) => formatCurrencyBRL(Number(value))}
-              // opcional: no dark isso não é perfeito, mas já melhora um pouco:
               labelStyle={{ color: '#111827' }}
             />
 
-            {/* Indigo em vez de preto (combine com seu tema) */}
             <Bar dataKey="investimento" fill="#4f46e5" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>

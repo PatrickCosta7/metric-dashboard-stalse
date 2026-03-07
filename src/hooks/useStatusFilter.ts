@@ -7,10 +7,7 @@ import type { StatusFilterValue } from '@/types';
 import { parseStatusFilter } from '@/utils/dashboard';
 
 type UseStatusFilterOptions = {
-  /**
-   * Nome do parâmetro na URL.
-   * Ex.: /?status=active
-   */
+  // URL Value. Ex: /?status=active
   paramName?: string;
 };
 
@@ -20,16 +17,13 @@ export function useStatusFilter(options: UseStatusFilterOptions = {}) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // URL -> filtro (memoizado pra não recalcular sem necessidade)
   const urlFilter = useMemo<StatusFilterValue>(() => {
     return parseStatusFilter(searchParams.get(paramName));
   }, [searchParams, paramName]);
 
-  // Estado local inicial vem da URL
   const [statusFilter, setStatusFilter] = useState<StatusFilterValue>(urlFilter);
 
-  // Mantém estado local sincronizado quando a URL mudar
-  // (back/forward, link compartilhado, etc.)
+  // Keep state sync with URL changes
   useEffect(() => {
     setStatusFilter(urlFilter);
   }, [urlFilter]);

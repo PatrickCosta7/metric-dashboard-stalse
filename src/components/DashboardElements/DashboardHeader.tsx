@@ -16,17 +16,17 @@ export function DashboardHeader({
   return (
     <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
       <div>
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <h1 className="text-3xl font-semibold tracking-tight bg-linear-to-r from-indigo-800 dark:from-indigo-400 to-violet-500 dark:to-violet-200 bg-clip-text text-transparent">
           {title}
         </h1>
       </div>
 
       <div className="flex w-full flex-row items-center gap-2 sm:w-auto sm:gap-3">
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <ThemeToggle />
         </div>
 
-        <div className="flex-1 sm:flex-shrink-0">
+        <div className="flex-1 sm:shrink-0">
           <button
               type="button"
               onClick={onToggleSimulateError}

@@ -26,7 +26,6 @@ export function DashboardSuccess({
         ))}
       </section>
 
-      {/* Card único: header + filtros + tabela */}
       <section
         className={[
           'rounded-2xl border bg-white/70 shadow-sm backdrop-blur',

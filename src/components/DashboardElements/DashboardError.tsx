@@ -6,6 +6,6 @@ type DashboardErrorProps = {
 
 export function DashboardError({ message }: DashboardErrorProps) {
   return (
-    <Alert title="Não foi possível carregar o dashboard" description={message} />
+    <Alert title="Erro: Não foi possível carregar o dashboard" description={message} />
   );
 }
