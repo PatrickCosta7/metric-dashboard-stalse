@@ -39,9 +39,6 @@ export function DashboardSuccess({
             <h2 className="text-base font-semibold text-zinc-950 dark:text-zinc-50">
               Campanhas
             </h2>
-            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-              Filtre por status e compartilhe o link com o filtro aplicado.
-            </p>
           </div>
 
           <StatusFilter value={statusFilter} onChange={onChangeStatusFilter} />
