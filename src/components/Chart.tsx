@@ -17,7 +17,7 @@ type ChartProps = {
 
 type ChartRow = {
   channel: string;
-  investment: number;
+  investimento: number;
 };
 
 function formatCurrencyBRL(value: number) {
@@ -54,8 +54,8 @@ function buildChartData(campaigns: Campaign[]): ChartRow[] {
   }
 
   return Array.from(map.entries())
-    .map(([channel, investment]) => ({ channel, investment }))
-    .sort((a, b) => b.investment - a.investment);
+    .map(([channel, investimento]) => ({ channel, investimento }))
+    .sort((a, b) => b.investimento - a.investimento);
 }
 
 export function Chart({ campaigns }: ChartProps) {
@@ -63,13 +63,10 @@ export function Chart({ campaigns }: ChartProps) {
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
-      <div className="mb-3">
+      <div className="mb-4">
         <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-50">
           Investimento por canal
         </h2>
-        <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">
-          Soma do investimento total das campanhas agrupadas por canal.
-        </p>
       </div>
 
       <div className="h-64">
@@ -107,7 +104,7 @@ export function Chart({ campaigns }: ChartProps) {
             />
 
             {/* Indigo em vez de preto (combine com seu tema) */}
-            <Bar dataKey="investment" fill="#4f46e5" radius={[6, 6, 0, 0]} />
+            <Bar dataKey="investimento" fill="#4f46e5" radius={[6, 6, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
