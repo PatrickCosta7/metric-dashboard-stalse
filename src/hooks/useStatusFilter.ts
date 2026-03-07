@@ -23,7 +23,7 @@ export function useStatusFilter(options: UseStatusFilterOptions = {}) {
 
   const [statusFilter, setStatusFilter] = useState<StatusFilterValue>(urlFilter);
 
-  // Keep state sync with URL changes
+  // Keep state in sync with URL changes
   useEffect(() => {
     setStatusFilter(urlFilter);
   }, [urlFilter]);
