@@ -7,10 +7,10 @@ import type { StatusFilterValue } from '@/types';
 import { useStatusFilter } from '@/hooks/useStatusFilter';
 import { useDashboardData } from '@/hooks/useDashboardData';
 import { applyStatusFilter } from '@/utils/dashboard';
-import { DashboardHeader } from '@/components/DashboardHeader';
-import { DashboardSuccess } from '@/components/DashboardSuccess';
-import { DashboardError } from '@/components/DashboardError';
-import { DashboardLoading } from '@/components/DashboardLoading';
+import { DashboardHeader } from '@/components/DashboardElements/DashboardHeader';
+import { DashboardSuccess } from '@/components/DashboardElements/DashboardSuccess';
+import { DashboardError } from '@/components/DashboardElements/DashboardError';
+import { DashboardLoading } from '@/components/DashboardElements/DashboardLoading';
 
 export default function HomeClient() {
   const [simulateError, setSimulateError] = useState(false);
