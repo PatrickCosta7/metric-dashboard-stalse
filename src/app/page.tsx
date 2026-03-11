@@ -15,12 +15,12 @@ export default function Page() {
       />
 
       <section
-        className={[
-          'rounded-2xl border bg-white/80 shadow-sm backdrop-blur',
-          'border-zinc-200',
-          'dark:border-zinc-800 dark:bg-zinc-950/60',
-          'p-4 sm:p-6',
-        ].join(' ')}
+        className="
+          rounded-2xl border bg-white/80 shadow-sm backdrop-blur
+          border-zinc-200
+          dark:border-zinc-800 dark:bg-zinc-950/60
+          p-4 sm:p-6
+          "
       >
         <Suspense
           fallback={

@@ -29,7 +29,6 @@ function formatCurrencyBRL(value: number) {
 }
 
 function shortChannelLabel(channel: string) {
-  // baseado no seu mock
   switch (channel) {
     case 'LinkedIn':
       return 'Linked';
