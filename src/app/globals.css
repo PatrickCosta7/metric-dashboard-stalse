@@ -17,6 +17,5 @@ body {
 }
 
 body {
-  /* fundo neutro usando tokens de cor do Tailwind via classes no layout */
   margin: 0;
 }
