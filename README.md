@@ -4,7 +4,7 @@ Dashboard simples para exibir métricas e campanhas usando **Next.js (App Router
 
 # Link da DEMO:
 
-- https://metric-dashboard-stalse.vercel.app/ 
+- [https://metric-dashboard-stalse.vercel.app/](https://vercel.com/patrickcosta7s-projects/metric-dashboard) 
 
 
 # Como rodar localmente:
